@@ -1,0 +1,12 @@
+{
+  "name": "latihan-css",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "index": "sass --no-source-map --style=compressed ./public/sass/index.sass ./public/css/index.css -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

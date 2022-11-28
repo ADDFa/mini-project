@@ -1,0 +1,106 @@
+@use './partials/_reset'
+@use 'sass:map'
+
+h1
+    font-size: .5rem
+    text-align: center
+    padding: .5em 0
+    text-transform: uppercase
+
+.times
+    width: 300px
+    height: 300px
+    margin: auto
+
+    padding: .5em
+
+.clock
+    width: 100%
+    height: 100%
+    padding: 20px
+    box-sizing: border-box
+    background-color: rgba(1, 2, 3, .9)
+
+    border-radius: 50%
+    border: 3px solid #000
+    box-shadow: 0 0 3px 6px rgba(0, 0, 0, .175)
+
+    position: relative
+
+.time
+    .area
+        font-size: .45rem
+        color: #fff
+
+        width: 1px
+        display: flex
+        justify-content: center
+
+        position: absolute
+        left: 50%
+        top: 3%
+        bottom: 50%
+        transform-origin: center bottom
+
+    .area:nth-child(1)
+        transform: translateX(-50%) rotate(0)
+
+    @for $i from 1 through 12
+        @if $i > 1
+            .area:nth-child(#{$i})
+                transform: translateX(-50%) rotate(calc( 30deg * calc( $i - 1 ) ))
+
+                &>span
+                    position: absolute
+                    transform: rotate(calc( -30deg * calc( $i - 1 ) ))
+.needle
+    width: 2px
+    height: 2px
+    background-color: #fff
+    border-radius: 50%
+
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%) rotate(-90deg)
+
+    z-index: 3
+
+.hour, .minute, .second
+    height: 100%
+    border-radius: 2px
+
+    position: absolute
+    left: 0
+    transform-origin: left center
+
+.hour
+    width: 60px
+    background-color: #fff
+
+.minute
+    width: 80px
+    background-color: #00858f
+
+.second
+    width: 100px
+    background-color: #bc1610
+
+.text-times
+    margin-top: .5rem
+    height: 50px
+    width: 100%
+
+    background-color: #fff
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .175)
+    border-radius: .5rem
+
+    display: flex
+    justify-content: center
+    align-items: center
+
+    span
+        font-weight: bold
+        text-align: center
+        font-size: .3rem
+        box-sizing: border-box
