@@ -6,7 +6,7 @@ runClock = () => {
 
     document.querySelector('.second').style.transform = `rotate(${6 * second}deg)`
     document.querySelector('.minute').style.transform = `rotate(${6 * minute}deg)`
-    document.querySelector('.hour').style.transform = `rotate(${hour / 2 * 60}deg)`
+    document.querySelector('.hour').style.transform = `rotate(${hour / 4 * 60}deg)`
     document.querySelector('.text-times span').textContent = `${hour} : ${minute} : ${(second < 10) ? '0' + second : second}`
 }
 
