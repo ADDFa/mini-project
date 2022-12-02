@@ -1,3 +1,5 @@
+caches.keys().then((keyList) => Promise.all(keyList.map((key) => caches.delete(key))))
+
 const days = document.querySelector('.days p')
 const hours = document.querySelector('.hours p')
 const minutes = document.querySelector('.minutes p')
