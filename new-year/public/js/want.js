@@ -1,5 +1,5 @@
 const getData = new Promise((resolve, reject) => {
-    fetch('https://mixtimid.000webhostapp.com/mini-project/new-years?hope=want')
+    fetch('https://mixtimid.000webhostapp.com/mini-project/new-years/index.php?hope=want')
         .then(e => e.json())
         .then(e => resolve(JSON.parse(e)))
 })
