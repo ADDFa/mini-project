@@ -1,0 +1,27 @@
+@use './partials/_reset'
+@use './partials/_components' as c
+
+@include c.heading()
+
+body
+    background-color: #DBDBDB
+
+h1
+    margin: 1rem
+
+.hopes
+    width: 80%
+    margin: 0 auto
+    list-style: none
+
+    li
+        padding: 0 1rem
+        box-sizing: border-box
+        border-radius: .8rem
+
+        box-shadow: 4px 4px 12px 0 #fff, -4px -4px 12px 0 #6D6D6D
+        height: 60px
+        display: flex
+        align-items: center
+
+        margin-bottom: 1rem

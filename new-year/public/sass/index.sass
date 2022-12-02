@@ -1,25 +1,16 @@
 @use './partials/_reset'
-
-$main-color: #242424
-$shadow: 4px 4px 24px 0 rgba(0, 0, 0, .75), -8px -8px 24px 0 rgba(0, 0, 0, 0)
+@use './partials/_components' as c
+@use './partials/_variables' as v
 
 body
     width: 100vw
     height: 100vh
     overflow: hidden
 
-    background-color: $main-color
+    background-color: v.$main-color
     color: #fff
 
-h1
-    text-shadow: .5px 0 0 #fff, -0.5px 0 0 #fff, 0 -0.5px 0 #fff, 0 1px 0 #fff
-    color: $main-color
-
-    text-align: center
-    margin: 0 auto
-    font-size: 2rem
-
-    margin-top: 3.5em
+@include c.heading()
 
 @media screen and ( max-width: 768px )
     h1
@@ -39,7 +30,7 @@ main
         border-radius: 8px
 
         background-color: #242424
-        box-shadow: $shadow
+        box-shadow: v.$shadow
 
         display: flex
         flex-direction: column

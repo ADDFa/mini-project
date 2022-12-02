@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "index": "sass --no-source-map --style=compressed ./public/sass/index.sass ./public/css/index.css -w"
+    "index": "sass --no-source-map --style=compressed ./public/sass/index.sass ./public/css/index.css -w",
+    "hope": "sass --no-source-map --style=compressed ./public/sass/show-hope.sass ./public/css/show-hope.css -w"
   },
   "keywords": [],
   "author": "",
