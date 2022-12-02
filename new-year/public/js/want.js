@@ -1,3 +1,5 @@
+caches.keys().then((keyList) => Promise.all(keyList.map((key) => caches.delete(key))))
+
 const getData = new Promise((resolve, reject) => {
     fetch('https://mixtimid.000webhostapp.com/mini-project/new-years/index.php?hope=want')
         .then(e => e.json())
