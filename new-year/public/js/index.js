@@ -87,7 +87,7 @@ document.querySelector('.want button').addEventListener('click', e => {
     const forms = new FormData
 
     forms.append('want', e.target.form.querySelector('[name="want"]').value)
-    fetch('http://neww-year.epizy.com/', {
+    fetch('https://mixtimid.000webhostapp.com/mini-project/new-years/', {
         body: forms,
         method: 'POST'
     })
