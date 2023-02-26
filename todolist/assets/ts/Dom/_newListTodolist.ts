@@ -1,0 +1,67 @@
+import { instanceTodo } from "../TodoStorage/Todo.js"
+import { el, event } from "./_function.js"
+import { openPopup, setPopupContent, closePopup } from "./_popup.js"
+import setTodolist from "./_setTodolist.js"
+
+const contentPopup = (id: string): string => {
+    return /* html */ `
+        <h4>Tambah Daftar Todolist</h4>
+
+        <div class="input">
+            <input type="text" name="name-list-todolist" placeholder="Nama Kegiatan" />
+        </div>
+
+        <div class="input">
+            <input type="time" name="time-list-todolist" />
+        </div>
+
+        <div class="_btn-submit">
+            <button type="button" class="btn-submit create-list-todolist" data-id="${id}">Tambah Daftar Todolist</button>
+        </div>
+    `
+}
+
+const eventCreateListTodolist = event(
+    ".create-list-todolist",
+    "click",
+    function (this: HTMLElement) {
+        const name = (el(`[name="name-list-todolist"]`) as HTMLInputElement)
+            .value
+        let time: any = (el(`[name="time-list-todolist"]`) as HTMLInputElement)
+            .value
+        time = time.split(":")
+
+        let date = new Date()
+        date = new Date(
+            date.getFullYear(),
+            date.getMonth(),
+            date.getDate(),
+            time[0],
+            time[1]
+        )
+
+        if (!this.dataset.id) return
+
+        instanceTodo.addListTodo(this.dataset.id, name, date)
+
+        // set new todolist and close popup
+        setTodolist()
+        closePopup()
+    }
+)
+
+export const eventNewListTodolist = event(
+    ".new-list-todolist",
+    "click",
+    function (this: HTMLElement) {
+        if (this.dataset.id) {
+            // set content popup
+            setPopupContent(contentPopup(this.dataset.id), [
+                eventCreateListTodolist
+            ])
+
+            // open popup
+            openPopup()
+        }
+    }
+)
