@@ -3,6 +3,12 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
+var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
+    if (kind === "m") throw new TypeError("Private method is not writable");
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
+    return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
+};
 var _Todo_instances, _Todo_name, _Todo_listTodo, _Todo_todo, _Todo_get, _Todo_findIndexById;
 export default class Todo {
     constructor() {
@@ -37,6 +43,11 @@ export default class Todo {
     createTodo(title) {
         __classPrivateFieldGet(this, _Todo_todo, "f").id = new Date().getTime();
         __classPrivateFieldGet(this, _Todo_todo, "f").title = title;
+        __classPrivateFieldSet(this, _Todo_listTodo, {
+            id: null,
+            name: "",
+            time: ""
+        }, "f");
         const todo = __classPrivateFieldGet(this, _Todo_instances, "m", _Todo_get).call(this);
         todo.push(__classPrivateFieldGet(this, _Todo_todo, "f"));
         localStorage.setItem(__classPrivateFieldGet(this, _Todo_name, "f"), JSON.stringify(todo));
