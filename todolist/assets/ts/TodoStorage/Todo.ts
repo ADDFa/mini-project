@@ -85,8 +85,10 @@ export default class Todo {
     ): ListTodoT | undefined {
         if (!id) return
 
-        const hours = time.getHours()
-        const minutes = time.getMinutes()
+        const hours =
+            time.getHours() < 10 ? `0${time.getHours()}` : time.getHours()
+        const minutes =
+            time.getMinutes() < 10 ? `0${time.getMinutes()}` : time.getMinutes()
 
         this.#listTodo.id = time.getTime()
         this.#listTodo.name = name

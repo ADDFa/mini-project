@@ -26,7 +26,9 @@ const eventCreateListTodolist = event(".create-list-todolist", "click", function
         .value;
     time = time.split(":");
     let date = new Date();
-    date = new Date(date.getFullYear(), date.getMonth(), date.getDate(), time[0], time[1]);
+    const hours = time[0] < 10 ? `0${time[0]}` : time[0];
+    const minutes = time[1] < 10 ? `0${time[1]}` : time[1];
+    date = new Date(date.getFullYear(), date.getMonth(), date.getDate(), hours, minutes);
     if (!this.dataset.id)
         return;
     instanceTodo.addListTodo(this.dataset.id, name, date);

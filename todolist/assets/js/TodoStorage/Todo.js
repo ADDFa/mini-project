@@ -65,8 +65,8 @@ export default class Todo {
     addListTodo(id, name, time) {
         if (!id)
             return;
-        const hours = time.getHours();
-        const minutes = time.getMinutes();
+        const hours = time.getHours() < 10 ? `0${time.getHours()}` : time.getHours();
+        const minutes = time.getMinutes() < 10 ? `0${time.getMinutes()}` : time.getMinutes();
         __classPrivateFieldGet(this, _Todo_listTodo, "f").id = time.getTime();
         __classPrivateFieldGet(this, _Todo_listTodo, "f").name = name;
         __classPrivateFieldGet(this, _Todo_listTodo, "f").time = `${hours} : ${minutes}`;

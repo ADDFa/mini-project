@@ -32,12 +32,15 @@ const eventCreateListTodolist = event(
         time = time.split(":")
 
         let date = new Date()
+        const hours = time[0] < 10 ? `0${time[0]}` : time[0]
+        const minutes = time[1] < 10 ? `0${time[1]}` : time[1]
+
         date = new Date(
             date.getFullYear(),
             date.getMonth(),
             date.getDate(),
-            time[0],
-            time[1]
+            hours,
+            minutes
         )
 
         if (!this.dataset.id) return
