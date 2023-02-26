@@ -8,7 +8,7 @@ const eventActionListTodolist = event(
     `[data-target="action-list-todolist"]`,
     "click",
     function (this: HTMLElement) {
-        el(`.${this.dataset.target}`).classList.toggle("active")
+        this.parentElement?.classList.toggle("active")
     }
 )
 

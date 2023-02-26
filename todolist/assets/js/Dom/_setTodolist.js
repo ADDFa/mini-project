@@ -4,7 +4,8 @@ import { eventRemoveTodo } from "./_deleteTodolist.js";
 import { eventNewListTodolist } from "./_newListTodolist.js";
 import { eventDeleteListTodolist } from "./_deleteListTodolist.js";
 const eventActionListTodolist = event(`[data-target="action-list-todolist"]`, "click", function () {
-    el(`.${this.dataset.target}`).classList.toggle("active");
+    var _a;
+    (_a = this.parentElement) === null || _a === void 0 ? void 0 : _a.classList.toggle("active");
 });
 export const setTodolist = () => {
     const dataTodo = instanceTodo.getTodo();
