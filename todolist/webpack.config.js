@@ -1,5 +1,10 @@
 const path = require("path")
 
+const getRandomFileName = () => {
+    const date = new Date()
+    return `${date.getTime()}index.js`
+}
+
 module.exports = {
     mode: "production",
     context: path.resolve(__dirname, "assets/js"),
@@ -8,6 +13,6 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, "assets/js"),
-        filename: "./index.js"
+        filename: `./${getRandomFileName()}`
     }
 }
