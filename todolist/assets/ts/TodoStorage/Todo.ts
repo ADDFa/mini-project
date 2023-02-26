@@ -55,6 +55,11 @@ export default class Todo {
     createTodo(title: string): TodoT {
         this.#todo.id = new Date().getTime()
         this.#todo.title = title
+        this.#listTodo = {
+            id: null,
+            name: "",
+            time: ""
+        }
 
         const todo = this.#get()
         todo.push(this.#todo)
